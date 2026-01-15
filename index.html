@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DyJ Eventos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       BARRA DE NAVEGACIÓN FIJA (NAVBAR)
+       Conectado con CSS:
+       - .navbar: estilos generales (fixed-top lo fija)
+       - .logo-nav: imagen del logo
+       - .navbar-nav .nav-link: enlaces del menú
+       - .icono-red: iconos de redes sociales
+       - .btn-custom: no se usa aquí pero está disponible
+       ===================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <!-- .container: contenedor Bootstrap que centra y controla el ancho máximo -->
+    <div class="container">
+      
+      <!-- 
+        LOGO DE LA MARCA
+        .navbar-brand: etiqueta semántica para el logo
+        Conectado con CSS: .logo-nav (height: 60px, transition, hover effects)
+      -->
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.png" alt="Logo" class="logo-nav">
+      </a>
+      
+      <!-- 
+        BOTÓN DE HAMBURGUESA (para móvil)
+        data-bs-toggle="collapse" y data-bs-target="#menuNav": Bootstrap JavaScript
+        Al hacer clic, muestra/oculta el menú en dispositivos pequeños
+      -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- 
+        MENÚ DE NAVEGACIÓN COLAPSABLE
+        id="menuNav": identificador para que el botón hamburguesa lo controle
+        justify-content-center: centra el menú
+        Conectado con CSS: .navbar-nav, .nav-link (color, hover effects)
+      -->
+      <div class="collapse navbar-collapse justify-content-center" id="menuNav">
+        <!-- Lista de navegación -->
+        <ul class="navbar-nav mx-auto text-center">
+          <!-- Cada elemento del menú es un nav-item con un nav-link -->
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="HTML/eventos.html">Eventos</a></li>
+          <li class="nav-item"><a class="nav-link" href="HTML/proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="HTML/acercade.html">Acerca de Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="HTML/contactanos.html">Contáctanos</a></li>
+        </ul>
+
+        <!-- 
+          ICONOS DE REDES SOCIALES
+          Se muestran en el navbar, alineados a la derecha en desktop
+          d-flex: usa flexbox
+          justify-content-center: centra en móvil
+          justify-content-lg-end: alinea a la derecha en pantallas grandes
+          gap-3: espacio entre iconos
+          Conectado con CSS: .icono-red (width: 28px, height: 28px, hover effects)
+        -->
+        <div class="d-flex justify-content-center justify-content-lg-end gap-3 mt-3 mt-lg-0">
+          <!-- Icono de Facebook -->
+          <a href="https://facebook.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+          </a>
+          <!-- Icono de Instagram -->
+          <a href="https://instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+          </a>
+          <!-- Icono de Twitter (comentado para no mostrarlo) -->
+          <!--<a href="https://twitter.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="icono-red">
+        </a>-->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       SECCIÓN HERO (PORTADA PRINCIPAL)
+       Conectado con CSS:
+       - .hero: display flex, align-items, gap, padding
+       - .hero-img: background-image, background-size, border-radius
+       - py-5: padding vertical Bootstrap
+       - container: ancho máximo
+       - d-flex, flex-column, flex-md-row: Bootstrap flexbox
+       - align-items-left: alineación (Bootstrap)
+       ===================================================== -->
+  <section class="py-5 container d-flex flex-column flex-md-row align-items-left">
+    <!-- 
+      COLUMNA DE TEXTO (Lado izquierdo en desktop, arriba en móvil)
+      col-md-6: ocupa 6 de 12 columnas en pantallas medianas+
+      Conectado con CSS: .hero .text-start, .hero .fw-bold
+    -->
+    <div class="col-md-6">
+      <!-- Título principal del sitio -->
+      <h1 class="fw-bold mb-3">Somos la mejor opción para todo tipo de eventos especializados en decoración vintage</h1>
+    </div>
+    
+    <!-- 
+      COLUMNA DE IMAGEN (Lado derecho en desktop, abajo en móvil)
+      col-md-6: ocupa 6 de 12 columnas en pantallas medianas+
+      hero-img: clase personalizada que contiene una imagen de fondo
+      mt-4 mt-md-0: margen superior en móvil, sin margen en desktop
+      Conectado con CSS: .hero-img (background-image, background-size, min-height, border-radius)
+    -->
+    <div class="col-md-6 hero-img mt-4 mt-md-0"></div>
+  </section>
+
+
+  <!-- =====================================================
+       SECCIÓN DE EVENTOS DESTACADOS
+       Conectado con CSS:
+       - py-5: padding vertical
+       - text-center: centra el texto
+       - bg-light: fondo gris claro de Bootstrap
+       - .evento-img: imagen de carrusel personalizada
+       ===================================================== -->
+  <section class="py-5 text-center bg-light">
+    <div class="container">
+      <!-- Título de la sección -->
+      <h2 class="mb-4">Eventos destacados</h2>
+
+      <!-- 
+        CARRUSEL DE EVENTOS
+        id="carouselEventos": identificador único
+        data-bs-ride="carousel": Bootstrap permite que se auto-inicie
+        Conectado con CSS: .evento-img (height: 400px, background-size, border-radius)
+      -->
+      <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel">
+        <!-- Contenedor interior del carrusel -->
+        <div class="carousel-inner">
+          <!-- 
+            PRIMER ELEMENTO DEL CARRUSEL (activo por defecto)
+            carousel-item: clase de Bootstrap para elementos del carrusel
+            active: indica que este es el primer elemento visible
+            .evento-img: usa CSS personalizado
+          -->
+          <div class="carousel-item active">
+            <div class="evento-img" style="background-image: url('images/evento1.jpg');"></div>
+          </div>
+          <!-- Segundo evento -->
+          <div class="carousel-item">
+            <div class="evento-img" style="background-image: url('images/evento2.jpg');"></div>
+          </div>
+          <!-- Tercer evento -->
+          <div class="carousel-item">
+            <div class="evento-img" style="background-image: url('images/evento3.jpg');"></div>
+          </div>
+          <!-- Cuarto evento -->
+          <div class="carousel-item">
+            <div class="evento-img" style="background-image: url('images/evento4.jpg');"></div>
+          </div>
+        </div>
+        
+        <!-- 
+          BOTÓN ANTERIOR DEL CARRUSEL
+          carousel-control-prev: clase Bootstrap para botón anterior
+          data-bs-target="#carouselEventos": vincula este botón al carrusel
+          data-bs-slide="prev": indica que va hacia atrás
+        -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        
+        <!-- 
+          BOTÓN SIGUIENTE DEL CARRUSEL
+          carousel-control-next: clase Bootstrap para botón siguiente
+          data-bs-slide="next": indica que va hacia adelante
+        -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselEventos" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <!-- Espacio entre carrusel y botón -->
+      <div class="mt-4">
+        <!-- Botón personalizado que enlaza a la página de eventos -->
+        <a href="HTML/eventos.html" class="btn btn-custom">Ver todos los eventos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SECCIÓN DE PROYECTOS (3 TARJETAS)
+       Conectado con CSS:
+       - py-5: padding vertical
+       - bg-light: fondo gris claro
+       - text-center: centra texto
+       - row g-4: grid de Bootstrap con gap de 4
+       - col-12 col-md-4: responsive columns
+       - .card: tarjeta Bootstrap
+       - .tarjeta-img: imagen personalizada en tarjeta
+       ===================================================== -->
+  <section class="py-5 bg-light text-center">
+    <div class="container">
+      <!-- Título de la sección -->
+      <h2 class="mb-4">Proyectos</h2>
+      
+      <!-- 
+        GRID DE 3 COLUMNAS
+        row: fila de Bootstrap
+        g-4: gap (espacio) entre columnas
+      -->
+      <div class="row g-4">
+        
+        <!-- 
+          PRIMERA TARJETA - DECORACIÓN VINTAGE
+          col-12 col-md-4: ocupa 12 columnas en móvil, 4 en desktop
+          h-100: hace que todas las tarjetas tengan la misma altura
+          shadow-sm: sombra pequeña
+        -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm">
+            <!-- 
+              IMAGEN DE LA TARJETA
+              .tarjeta-img: clase personalizada
+              style con background-image: establece imagen de fondo
+              Conectado con CSS: .tarjeta-img (min-height: 220px, border-radius, hover effects)
+            -->
+            <div class="tarjeta-img" style="background-image: url('images/proyecto1.jpg');"></div>
+            <!-- Cuerpo de la tarjeta (texto) -->
+            <div class="card-body">
+              <h5 class="card-title">Decoración Vintage</h5>
+              <p class="card-text">Eventos con un toque clásico y elegante.</p>
+              <!-- Botón dentro de la tarjeta -->
+              <a href="HTML/proyectos.html" class="btn btn-custom">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 
+          SEGUNDA TARJETA - FIESTAS TEMÁTICAS
+          Misma estructura que la primera tarjeta
+        -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="tarjeta-img" style="background-image: url('images/proyecto2.jpg');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Fiestas Temáticas</h5>
+              <p class="card-text">Diseños personalizados para cada ocasión.</p>
+              <a href="HTML/proyectos.html" class="btn btn-custom">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 
+          TERCERA TARJETA - BODAS MODERNAS
+          Misma estructura que las anteriores
+        -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="tarjeta-img" style="background-image: url('images/proyecto3.jpg');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Bodas Modernas</h5>
+              <p class="card-text">Ambientes únicos con estilo contemporáneo.</p>
+              <a href="HTML/proyectos.html" class="btn btn-custom">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SECCIÓN "ACERCA DE NOSOTROS"
+       Conectado con CSS:
+       - py-5: padding vertical
+       - container: ancho máximo
+       - d-flex, flex-column, flex-md-row: flexbox responsive
+       - col-md-*: columnas Bootstrap
+       - img-fluid: imagen responsive de Bootstrap
+       - rounded: esquinas redondeadas de Bootstrap
+       - shadow-sm: sombra pequeña
+       ===================================================== -->
+  <section class="py-5 container d-flex flex-column flex-md-row align-items-center">
+    <!-- 
+      COLUMNA DE IMAGEN (izquierda en desktop, arriba en móvil)
+      col-md-6: ocupa 6 de 12 columnas
+      mb-4 mb-md-0: margen inferior en móvil, sin margen en desktop
+      img-fluid: imagen que se adapta al contenedor
+      rounded: esquinas redondeadas
+      shadow-sm: sombra pequeña
+    -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="images/acerca.jpg" alt="Nuestro equipo de eventos" class="img-fluid rounded shadow-sm">
+    </div>
+    
+    <!-- 
+      COLUMNA DE TEXTO (derecha en desktop, abajo en móvil)
+      col-md-6: ocupa 6 de 12 columnas
+      ps-md-5: padding-left solo en desktop (ps = padding-start)
+    -->
+    <div class="col-md-6 ps-md-5">
+      <!-- Título de la sección -->
+      <h2>Acerca de nosotros</h2>
+      <!-- Párrafo con descripción -->
+      <p>En D&J eventos nos especializamos en hacer de cada evento una experiencia inolvidable. Nuestro equipo combina
+        creatividad, pasión y profesionalismo para transformar tus ideas en celebraciones únicas y llenas de emoción.
+        Desde la planificación hasta el último detalle, cuidamos cada aspecto para que tú solo disfrutes del momento.
+        Creamos experiencias, diseñamos recuerdos y celebramos contigo los momentos más importantes de tu vida.</p>
+      <!-- Botón para ver más información -->
+      <a href="HTML/acercade.html" class="btn btn-custom">Ver más</a>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       SECCIÓN "CONTÁCTANOS"
+       Conectado con CSS:
+       - py-5: padding vertical
+       - container: ancho máximo
+       - row align-items-center: fila centrada
+       - col-md-6: columnas de 6
+       - .contacto-img: imagen personalizada
+       ===================================================== -->
+  <section class="py-5 container">
+    <!-- Título centrado -->
+    <h2 class="text-center mb-4">Contáctanos</h2>
+    <!-- Grid de 2 columnas -->
+    <div class="row align-items-center">
+      <!-- 
+        COLUMNA DE TEXTO (izquierda)
+        col-md-6: ocupa 6 columnas en desktop
+      -->
+      <div class="col-md-6">
+        <p>Organizar un evento inolvidable comienza con una buena conversación. En nuestro equipo sabemos que cada celebración es única y merece una atención especial. Ya sea que estés planeando una quinceañera, una boda, un evento corporativo o una fiesta privada, estamos aquí para escuchar tus ideas y ayudarte a hacerlas realidad..</p>
+        <!-- Botón para contactar -->
+        <a href="HTML/contactanos.html" class="btn btn-custom">Ver más</a>
+      </div>
+      
+      <!-- 
+        COLUMNA DE IMAGEN (derecha)
+        col-md-6: ocupa 6 columnas en desktop
+        mt-4 mt-md-0: margen superior en móvil, sin margen en desktop
+        text-center: centra el contenido
+      -->
+      <div class="col-md-6 mt-4 mt-md-0 text-center">
+        <!-- 
+          IMAGEN DE CONTACTO
+          img-fluid: imagen responsive
+          rounded: esquinas redondeadas
+          shadow-sm: sombra pequeña
+          contacto-img: clase personalizada de CSS
+        -->
+        <img src="images/contactanos.jpg" alt="Contáctanos" class="img-fluid rounded shadow-sm contacto-img">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       PIE DE PÁGINA (FOOTER)
+       Conectado con CSS:
+       - .footer: estilos personalizados (background-color, color, font-size)
+       - bg-dark: fondo oscuro de Bootstrap
+       - text-white: texto blanco
+       - pt-5 pb-3: padding top y bottom
+       - mt-5: margen superior
+       - .footer h5, .footer a: estilos personalizados en footer
+       ===================================================== -->
+  <footer class="footer bg-dark text-white pt-5 pb-3 mt-5">
+    <div class="container text-center text-md-start">
+      <!-- Grid de 3 columnas en desktop -->
+      <div class="row">
+
+        <!-- 
+          PRIMERA COLUMNA - INFORMACIÓN DE LA EMPRESA
+          col-md-4: ocupa 4 de 12 columnas
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Título del footer con color verde personalizado -->
+          <h5 class="fw-bold">D&J Eventos</h5>
+          <!-- Descripción de la empresa -->
+          <p>Creamos momentos inolvidables con estilo, dedicación y elegancia.</p>
+        </div>
+
+
+        <!-- 
+          SEGUNDA COLUMNA - INFORMACIÓN DE CONTACTO
+          col-md-4: ocupa 4 de 12 columnas
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Contáctanos</h5>
+          <!-- Lista sin estilos (sin viñetas) -->
+          <ul class="list-unstyled">
+            <!-- Teléfono -->
+            <li>📞 +51 954795827</li>
+            <!-- Email -->
+            <li>✉️ contacto@dyjeventos.com</li>
+            <!-- Ubicación -->
+            <li>📍 Lima, Perú</li>
+          </ul>
+        </div>
+
+
+        <!-- 
+          TERCERA COLUMNA - REDES SOCIALES
+          col-md-4: ocupa 4 de 12 columnas
+          text-center text-md-end: centra en móvil, alinea a la derecha en desktop
+        -->
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Síguenos</h5>
+          <!-- 
+            ICONOS DE REDES SOCIALES
+            d-flex: usa flexbox
+            justify-content-center justify-content-md-end: centra en móvil, derecha en desktop
+            gap-3: espacio entre iconos
+            mt-2: margen superior
+          -->
+          <div class="d-flex justify-content-center justify-content-md-end gap-3 mt-2">
+            <!-- Enlace a Facebook -->
+            <a href="https://facebook.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+            </a>
+            <!-- Enlace a Instagram -->
+            <a href="https://instagram.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+            </a>
+            <!-- Enlace a Twitter (comentado para no mostrarlo) -->
+            <!--<a href="https://twitter.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="icono-red">
+          </a>-->
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        LÍNEA DIVISORIA
+        border-light: línea con color claro
+        Conectado con CSS: .footer hr { opacity: 0.2; }
+      -->
+      <hr class="border-light">
+      
+      <!-- 
+        TEXTO DE DERECHOS RESERVADOS
+        text-center: centra el texto
+        mb-0: sin margen inferior
+      -->
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 D&J Eventos – Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- 
+    SCRIPT DE BOOTSTRAP
+    Este script permite que funcionen todas las características interactivas de Bootstrap:
+    - Navbar colapsable (botón hamburguesa)
+    - Carrusel de eventos
+    - Transiciones y animaciones
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

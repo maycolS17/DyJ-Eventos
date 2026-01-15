@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - D&J Eventos</title>
+    
+    <!-- 
+      ENLACE A BOOTSTRAP 5.3.3
+      Bootstrap es un framework CSS que proporciona estilos predefinidos
+      Clases usadas: container, navbar, btn, row, col, shadow-sm, etc.
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 
+      FUENTE PLAYFAIR DISPLAY
+      Se usa para títulos y navbar (font-family: 'Playfair Display', serif)
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- 
+      FUENTE POPPINS
+      Se usa como fuente principal del sitio (font-family: "Poppins", sans-serif)
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- 
+      ENLACE A ARCHIVO CSS PERSONALIZADO
+      Aquí van todos los estilos personalizados del sitio
+    -->
+    <link rel="stylesheet" href="../styles.css">
+    
+    <!-- 
+      CSS PERSONALIZADO PARA LA PÁGINA DE CONTACTO
+      Incluye estilos específicos para el formulario y el mapa
+    -->
+    <style>
+      /* =====================================================
+         ESTILOS DEL FORMULARIO Y CAMPOS
+         ===================================================== */
+      
+      /* Espaciado entre campos del formulario */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      /* Estilos del label (etiqueta) del formulario */
+      .form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      
+      /* Estilos del input (campo de texto) */
+      .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      /* Efecto cuando el input está enfocado (cuando haces click) */
+      .form-control:focus {
+        border-color: #0a5;
+        box-shadow: 0 0 0 0.2rem rgba(0, 170, 85, 0.25);
+        outline: none;
+      }
+      
+      /* Estilos del textarea (campo de texto largo) */
+      .form-control textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      /* Contenedor principal del formulario */
+      .formulario-contacto {
+        background-color: #f9f9f9;
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Título del formulario */
+      .titulo-formulario {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        color: #222;
+        font-size: 2rem;
+      }
+      
+      /* Descripción del formulario */
+      .descripcion-formulario {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #666;
+        font-size: 1.05rem;
+      }
+      
+      /* Contenedor de dos columnas en desktop */
+      .dos-columnas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      
+      /* =====================================================
+         ESTILOS DEL MAPA DE GOOGLE
+         ===================================================== */
+      
+      /* 
+        CONTENEDOR DEL MAPA
+        height: 500px define la altura del mapa
+        border-radius: 12px redondea las esquinas
+        overflow: hidden evita que el contenido salga de las esquinas
+        margin-bottom: 2rem deja espacio debajo
+        box-shadow: agrega sombra para profundidad
+      */
+      .contenedor-mapa {
+        height: 500px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* 
+        IFRAME DEL MAPA
+        width: 100% ocupa ancho completo del contenedor
+        height: 100% ocupa todo el alto del contenedor
+        border: none elimina el borde por defecto
+        display: block elimina espacios en blanco
+      */
+      .contenedor-mapa iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      
+      /* 
+        SECCIÓN CON MAPA E INFORMACIÓN
+        display: grid crea un layout de grid
+        grid-template-columns: 1fr 1fr en desktop son 2 columnas iguales
+        gap: 2rem espacio entre mapa e información
+        align-items: start alinea items en la parte superior
+        margin-bottom: 3rem deja espacio debajo
+      */
+      .seccion-ubicacion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        margin-bottom: 3rem;
+      }
+      
+      /* 
+        INFORMACIÓN DE UBICACIÓN
+        Contenedor con los datos de contacto junto al mapa
+        background-color: #f9f9f9 fondo gris claro
+        padding: 2rem espacio interno
+        border-radius: 12px esquinas redondeadas
+      */
+      .info-ubicacion {
+        background-color: #f9f9f9;
+        padding: 2rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* 
+        TÍTULO DE INFORMACIÓN
+        color: #0a5 usa el verde personalizado
+        margin-bottom: 1.5rem deja espacio
+        font-weight: 700 texto muy grueso
+      */
+      .info-ubicacion h3 {
+        color: #0a5;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+      
+      /* 
+        PÁRRAFO DE INFORMACIÓN
+        margin-bottom: 1rem deja espacio entre líneas
+        color: #666 gris medio para texto secundario
+        line-height: 1.6 altura de línea para mejor legibilidad
+      */
+      .info-ubicacion p {
+        margin-bottom: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+      
+      /* 
+        ENLACES EN LA INFORMACIÓN
+        color: #0a5 usa el verde personalizado
+        text-decoration: none elimina el subrayado
+        transition: 0.3s ease cambio suave al pasar mouse
+      */
+      .info-ubicacion a {
+        color: #0a5;
+        text-decoration: none;
+        transition: 0.3s ease;
+      }
+      
+      /* Efecto cuando pasas mouse sobre los enlaces */
+      .info-ubicacion a:hover {
+        text-decoration: underline;
+        color: #088;
+      }
+      
+      /* Mensaje de éxito del formulario */
+      .mensaje-exito {
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        text-align: center;
+        border: 1px solid #c3e6cb;
+      }
+      
+      /* Mensaje de error del formulario */
+      .mensaje-error {
+        display: none;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        text-align: center;
+        border: 1px solid #f5c6cb;
+      }
+      
+      /* =====================================================
+         RESPONSIVE DESIGN - TABLETS
+         max-width: 992px significa que estos estilos se aplican
+         en pantallas de 992px o menores
+         ===================================================== */
+      
+      @media (max-width: 992px) {
+        /* 
+          EN TABLET: UNA SOLA COLUMNA
+          El mapa se muestra arriba de la información
+        */
+        .seccion-ubicacion {
+          grid-template-columns: 1fr;
+        }
+        
+        /* Altura del mapa reducida */
+        .contenedor-mapa {
+          height: 400px;
+        }
+      }
+      
+      /* =====================================================
+         RESPONSIVE DESIGN - MÓVILES
+         max-width: 768px significa que estos estilos se aplican
+         en pantallas de 768px o menores
+         ===================================================== */
+      
+      @media (max-width: 768px) {
+        /* Campos en una columna */
+        .dos-columnas {
+          grid-template-columns: 1fr;
+        }
+        
+        /* Menos padding en el formulario */
+        .formulario-contacto {
+          padding: 1.5rem;
+        }
+        
+        /* Altura del mapa más pequeña */
+        .contenedor-mapa {
+          height: 300px;
+        }
+        
+        /* Menos padding en la información */
+        .info-ubicacion {
+          padding: 1.5rem;
+        }
+        
+        /* Título más pequeño */
+        .titulo-formulario {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       BARRA DE NAVEGACIÓN FIJA (NAVBAR)
+       Conectado con CSS personalizado:
+       - .navbar: estilos generales
+       - .logo-nav: imagen del logo con efectos
+       - .navbar-nav .nav-link: enlaces del menú
+       - .icono-red: iconos de redes sociales
+       - fixed-top: fija la barra en la parte superior
+       ===================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <div class="container">
+      <!-- 
+        LOGO DE LA MARCA
+        Enlaza a index.html (página principal)
+        Conectado con CSS: .logo-nav
+      -->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.png" alt="Logo" class="logo-nav">
+      </a>
+      
+      <!-- 
+        BOTÓN HAMBURGUESA PARA MÓVIL
+        data-bs-toggle="collapse": atributo de Bootstrap
+        data-bs-target="#menuNav": vincula al menú a ocultar/mostrar
+      -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- 
+        MENÚ COLAPSABLE
+        id="menuNav": identificador para que el botón hamburguesa lo controle
+        justify-content-center: centra el menú
+      -->
+      <div class="collapse navbar-collapse justify-content-center" id="menuNav">
+        <!-- 
+          LISTA DE NAVEGACIÓN
+          mx-auto: centra horizontalmente
+          text-center: centra el texto
+        -->
+        <ul class="navbar-nav mx-auto text-center">
+          <!-- Cada elemento del menú es un nav-item con un nav-link -->
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/eventos.html">Eventos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/acercade.html">Acerca de Nosotros</a></li>
+          <!-- "active" indica que estamos en esta página -->
+          <li class="nav-item"><a class="nav-link active" href="../HTML/contactanos.html">Contáctanos</a></li>
+        </ul>
+
+        <!-- 
+          ICONOS DE REDES SOCIALES
+          Se muestran en el navbar, alineados a la derecha en desktop
+          d-flex: usa flexbox
+          justify-content-center: centra en móvil
+          justify-content-lg-end: alinea a la derecha en desktop
+          gap-3: espacio entre iconos
+          Conectado con CSS: .icono-red
+        -->
+        <div class="d-flex justify-content-center justify-content-lg-end gap-3 mt-3 mt-lg-0">
+          <!-- Icono de Facebook que abre en nueva pestaña -->
+          <a href="https://facebook.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+          </a>
+          <!-- Icono de Instagram que abre en nueva pestaña -->
+          <a href="https://instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       SECCIÓN DE MAPA E INFORMACIÓN DE UBICACIÓN
+       Muestra el mapa de Google y los datos de contacto/ubicación
+       Conectado con CSS:
+       - .seccion-ubicacion: layout de grid 2 columnas
+       - .contenedor-mapa: estilos del mapa
+       - .info-ubicacion: información de contacto
+       ===================================================== -->
+  <section class="py-5 container mt-5">
+    <!-- 
+      CONTENEDOR DE MAPA E INFORMACIÓN
+      seccion-ubicacion: clase personalizada con grid
+      En desktop: 2 columnas (mapa | información)
+      En móvil: 1 columna (mapa arriba, información abajo)
+    -->
+    <div class="seccion-ubicacion">
+      
+      <!-- 
+        MAPA DE GOOGLE - COLUMNA IZQUIERDA
+        contenedor-mapa: contenedor personalizado
+        
+        ¿CÓMO CAMBIAR LA UBICACIÓN?
+        
+        PASO 1: Ir a https://maps.google.com
+        PASO 2: Buscar la ubicación deseada (ej: "Mi negocio, Lima")
+        PASO 3: Hacer clic derecho en el lugar
+        PASO 4: Seleccionar "Compartir" o "Insertar un mapa"
+        PASO 5: Copiar el código del iframe
+        PASO 6: Reemplazar el src en el iframe de abajo
+        
+        UBICACIÓN ACTUAL: Lima, Perú
+        LATITUD: -12.0464
+        LONGITUD: -77.0428
+      -->
+      <div class="contenedor-mapa">
+        <!-- 
+          IFRAME CON EL MAPA DE GOOGLE
+          src: URL de Google Maps Embed con coordenadas
+          allowfullscreen: permite ver el mapa en pantalla completa
+          loading="lazy": carga el mapa solo cuando es visible (optimiza carga)
+          referrerpolicy="no-referrer-when-downgrade": privacidad y seguridad
+          
+          Para personalizar:
+          1. Copiar el iframe completo de Google Maps
+          2. Reemplazar el src por completo
+          3. La estructura del iframe se mantiene igual
+        -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.9829301831097!2d-77.04282332345805!3d-12.046359546785403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7c6e1c1c1c1%3A0x1c1c1c1c1c1c1c1c!2sD%26J%20Eventos!5e0!3m2!1ses!2spe!4v1234567890123" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- 
+        INFORMACIÓN DE UBICACIÓN - COLUMNA DERECHA
+        info-ubicacion: clase personalizada
+        En móvil se muestra debajo del mapa
+        display: flex centra verticalmente el contenido
+      -->
+      <div class="info-ubicacion">
+        <!-- Título de la sección con emoji de ubicación -->
+        <h3>📍 Ubicación</h3>
+        
+        <!-- 
+          INFORMACIÓN DE DIRECCIÓN
+          strong: hace el texto más grueso (etiqueta)
+          br: salto de línea
+        -->
+        <p>
+          <strong>Dirección:</strong><br>
+          Lima, Perú
+        </p>
+        
+        <!-- Información sobre la zona -->
+        <p>
+          <strong>Zona:</strong><br>
+          Estamos ubicados en el corazón de Lima, fácilmente accesible desde todas las zonas de la ciudad.
+        </p>
+        
+        <!-- 
+          TELÉFONO CON ENLACE PARA LLAMAR
+          href="tel:..." permite hacer llamada directa desde móvil
+          style: estilos inline personalizados
+        -->
+        <p>
+          <strong>Teléfono:</strong><br>
+          <a href="tel:+51954795827">📞 +51 954795827</a>
+        </p>
+        
+        <!-- 
+          EMAIL CON ENLACE PARA ENVIAR CORREO
+          href="mailto:..." abre el cliente de correo al hacer click
+        -->
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:contacto@dyjeventos.com">✉️ contacto@dyjeventos.com</a>
+        </p>
+        
+        <!-- Información sobre horario de atención -->
+        <p>
+          <strong>Horario de Atención:</strong><br>
+          Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+          Sábados: 10:00 AM - 4:00 PM<br>
+          Domingos: Cerrado
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SECCIÓN DE FORMULARIO DE CONTACTO
+       Conectado con CSS:
+       - .formulario-contacto: contenedor del formulario
+       - .titulo-formulario: título
+       - .form-group: espaciado entre campos
+       - .form-control: estilos de inputs
+       - .btn-custom: botón personalizado
+       ===================================================== -->
+  <section class="py-5 container">
+    <!-- 
+      CONTENEDOR DEL FORMULARIO
+      formulario-contacto: clase personalizada
+      max-width: 700px para que no sea demasiado ancho
+      mx-auto: centra horizontalmente el contenedor
+    -->
+    <div class="formulario-contacto" style="max-width: 700px; margin: 0 auto;">
+      
+      <!-- 
+        TÍTULO DEL FORMULARIO
+        titulo-formulario: clase personalizada con estilos
+      -->
+      <h1 class="titulo-formulario">Envíanos un Mensaje</h1>
+      
+      <!-- 
+        DESCRIPCIÓN DEL FORMULARIO
+        descripcion-formulario: clase personalizada
+      -->
+      <p class="descripcion-formulario">
+        Cuéntanos sobre tu evento y nos pondremos en contacto contigo lo antes posible.
+      </p>
+
+      <!-- 
+        MENSAJE DE ÉXITO (oculto por defecto)
+        Se muestra cuando el formulario se envía correctamente
+        id="mensajeExito": para identificarlo en JavaScript
+      -->
+      <div id="mensajeExito" class="mensaje-exito">
+        ¡Gracias! Hemos recibido tu mensaje. Te contactaremos pronto.
+      </div>
+
+      <!-- 
+        MENSAJE DE ERROR (oculto por defecto)
+        Se muestra si hay un error al enviar el formulario
+        id="mensajeError": para identificarlo en JavaScript
+      -->
+      <div id="mensajeError" class="mensaje-error">
+        Parece que hubo un error. Por favor, intenta nuevamente.
+      </div>
+
+      <!-- 
+        FORMULARIO PRINCIPAL
+        id="formularioContacto": para identificarlo en JavaScript
+        method="POST": envía datos por POST (más seguro que GET)
+        action: URL de FormSubmit para enviar a Gmail
+        
+        IMPORTANTE: Cambiar "contacto@dyjeventos.com" por tu email real
+      -->
+      <form id="formularioContacto" method="POST" action="https://formsubmit.co/contacto@dyjeventos.com">
+        
+        <!-- 
+          CONTENEDOR DE DOS COLUMNAS
+          dos-columnas: clase personalizada que usa CSS Grid
+          En desktop: 2 columnas
+          En móvil: 1 columna (responsive)
+        -->
+        <div class="dos-columnas">
+          
+          <!-- 
+            CAMPO DE NOMBRE
+            form-group: espacio entre campos
+            Primera columna
+          -->
+          <div class="form-group">
+            <!-- Etiqueta del campo -->
+            <label for="nombre" class="form-label">Nombre Completo *</label>
+            <!-- 
+              Input de texto para el nombre
+              form-control: estilos de Bootstrap + CSS personalizado
+              id="nombre": identificador único
+              name="nombre": nombre del campo para enviar datos
+              required: campo obligatorio
+            -->
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+
+          <!-- 
+            CAMPO DE TELÉFONO
+            Segunda columna
+          -->
+          <div class="form-group">
+            <!-- Etiqueta del campo -->
+            <label for="telefono" class="form-label">Teléfono *</label>
+            <!-- 
+              Input de teléfono
+              type="tel": valida que sea un formato de teléfono
+              id="telefono": identificador
+              name="telefono": nombre para enviar datos
+              required: obligatorio
+            -->
+            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+51 9 XXXX XXXX" required>
+          </div>
+        </div>
+
+        <!-- 
+          CAMPO DE EMAIL
+          form-group: espacio entre campos
+          Ancho completo (no está en dos-columnas)
+        -->
+        <div class="form-group">
+          <!-- Etiqueta del campo -->
+          <label for="email" class="form-label">Correo Electrónico *</label>
+          <!-- 
+            Input de email
+            type="email": valida que sea un email válido
+            id="email": identificador
+            name="email": nombre para enviar datos
+            required: obligatorio
+          -->
+          <input type="email" class="form-control" id="email" name="email" placeholder="tu.email@ejemplo.com" required>
+        </div>
+
+        <!-- 
+          CAMPO DE TIPO DE EVENTO
+          form-group: espacio entre campos
+        -->
+        <div class="form-group">
+          <!-- Etiqueta del campo -->
+          <label for="tipoEvento" class="form-label">Tipo de Evento *</label>
+          <!-- 
+            Select (desplegable) de Bootstrap
+            id="tipoEvento": identificador
+            name="tipoEvento": nombre para enviar datos
+            required: obligatorio
+          -->
+          <select class="form-control" id="tipoEvento" name="tipoEvento" required>
+            <!-- Opción por defecto deshabilitada -->
+            <option value="" disabled selected>Selecciona un tipo de evento</option>
+            <!-- Opciones disponibles -->
+            <option value="Quinceañero">Quinceañero</option>
+            <option value="Boda">Boda</option>
+            <option value="Cumpleaños">Cumpleaños</option>
+            <option value="Evento Corporativo">Evento Corporativo</option>
+            <option value="Fiesta Temática">Fiesta Temática</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- 
+          CAMPO DE FECHA DEL EVENTO
+          form-group: espacio entre campos
+        -->
+        <div class="form-group">
+          <!-- Etiqueta del campo -->
+          <label for="fecha" class="form-label">Fecha Aproximada del Evento</label>
+          <!-- 
+            Input de tipo date (selector de fecha)
+            type="date": permite seleccionar una fecha del calendario
+            id="fecha": identificador
+            name="fecha": nombre para enviar datos
+          -->
+          <input type="date" class="form-control" id="fecha" name="fecha">
+        </div>
+
+        <!-- 
+          CAMPO DE INFORMACIÓN ADICIONAL
+          form-group: espacio entre campos
+          Ancho completo
+        -->
+        <div class="form-group">
+          <!-- Etiqueta del campo -->
+          <label for="mensaje" class="form-label">Detalles Adicionales *</label>
+          <!-- 
+            Textarea (campo de texto grande)
+            id="mensaje": identificador
+            name="mensaje": nombre para enviar datos
+            rows="4": número de líneas visibles
+            required: obligatorio
+          -->
+          <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos más sobre tu evento: temática, número de invitados, presupuesto, etc." required></textarea>
+        </div>
+
+        <!-- 
+          CAMPO OCULTO PARA FORMSUBMIT
+          _next: URL a la que ir después de enviar el formulario (opcional)
+        -->
+        <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+
+        <!-- 
+          CAMPO OCULTO PARA CAPTCHA
+          _captcha="false" desactiva el captcha
+          Si quieres activarlo, cambia a "true"
+        -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- 
+          BOTÓN DE ENVÍO
+          btn btn-custom: clases personalizadas
+          type="submit": envía el formulario
+          w-100: ancho 100%
+          mt-3: margen superior
+          Conectado con CSS: .btn-custom (background-color #0a5, hover effects)
+        -->
+        <button type="submit" class="btn btn-custom w-100 mt-3" style="padding: 0.75rem; font-weight: 600; font-size: 1rem;">
+          Enviar Mensaje
+        </button>
+      </form>
+
+      <!-- 
+        TEXTO ADICIONAL
+        mt-3: margen superior
+        text-center: centra el texto
+      -->
+      <p class="mt-3 text-center" style="color: #666; font-size: 0.95rem;">
+        * Campos obligatorios
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER (PIE DE PÁGINA)
+       Conectado con CSS personalizado:
+       - .footer: background-color, color, font-size
+       - .footer h5: color verde personalizado
+       - .footer a: color y hover effects
+       - .footer hr: opacity reducida
+       ===================================================== -->
+  <footer class="footer bg-dark text-white pt-5 pb-3 mt-5">
+    <!-- Contenedor principal con ancho máximo -->
+    <div class="container text-center text-md-start">
+      <!-- Grid de 3 columnas en desktop -->
+      <div class="row">
+
+        <!-- 
+          PRIMERA COLUMNA - INFORMACIÓN DE LA EMPRESA
+          col-md-4: ocupa 4 de 12 columnas en desktop
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Nombre de la empresa con color verde personalizado -->
+          <h5 class="fw-bold">D&J Eventos</h5>
+          <!-- Descripción corta -->
+          <p>Creamos momentos inolvidables con estilo, dedicación y elegancia.</p>
+        </div>
+
+        <!-- 
+          SEGUNDA COLUMNA - INFORMACIÓN DE CONTACTO
+          col-md-4: ocupa 4 de 12 columnas
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Contáctanos</h5>
+          <!-- 
+            Lista sin estilos de viñetas
+            list-unstyled: clase de Bootstrap que quita viñetas
+          -->
+          <ul class="list-unstyled">
+            <!-- Teléfono con emoji como icono -->
+            <li>📞 +51 954795827</li>
+            <!-- Email con emoji como icono -->
+            <li>✉️ contacto@dyjeventos.com</li>
+            <!-- Ubicación con emoji como icono -->
+            <li>📍 Lima, Perú</li>
+          </ul>
+        </div>
+
+        <!-- 
+          TERCERA COLUMNA - REDES SOCIALES
+          col-md-4: ocupa 4 de 12 columnas
+          text-center: centra en móvil
+          text-md-end: alinea a la derecha en desktop
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Síguenos</h5>
+          <!-- 
+            CONTENEDOR DE ICONOS SOCIALES
+            d-flex: usa flexbox
+            justify-content-center: centra en móvil
+            justify-content-md-end: alinea a derecha

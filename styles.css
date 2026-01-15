@@ -1,0 +1,540 @@
+/* =====================================================
+   ESTILOS GENERALES DEL CUERPO Y FUENTES
+   ===================================================== */
+
+body {
+  /* Define la fuente principal de todo el sitio */
+  font-family: "Poppins", sans-serif;
+  /* Color de texto por defecto para todo el contenido */
+  color: #333;
+  /* Agrega espacio superior al body para que el navbar fijo no cubra contenido */
+  padding-top: 80px;
+  /* Color de fondo blanco para toda la página */
+  background-color: #fff;
+  /* Animación suave al hacer scroll (desplazamiento lento) */
+  scroll-behavior: smooth;
+}
+
+/* =====================================================
+   ESTILOS DE LA BARRA DE NAVEGACIÓN (NAVBAR)
+   ===================================================== */
+
+.navbar,
+.navbar a,
+.navbar-brand {
+  /* Usa la fuente elegante Playfair Display para el navbar */
+  font-family: 'Playfair Display', serif;
+  /* Hace el texto un poco más grueso (peso 500) */
+  font-weight: 500;
+  /* Agrega espaciado entre letras para un estilo elegante */
+  letter-spacing: 0.5px;
+}
+
+/* Estilos para los enlaces del menú de navegación */
+.navbar-nav .nav-link {
+  /* Color gris oscuro para el texto del enlace */
+  color: #333 !important;
+  /* Transición suave cuando cambia el color (0.3 segundos) */
+  transition: color 0.3s ease, transform 0.2s ease;
+  /* Espacio interno alrededor del texto del enlace */
+  padding: 10px 15px;
+}
+
+/* Efecto cuando pasas el mouse sobre un enlace del menú */
+.navbar-nav .nav-link:hover {
+  /* Cambia el color a verde cuando haces hover */
+  color: #0a5 !important;
+  /* Mueve el enlace hacia arriba 2px cuando pasas el mouse */
+  transform: translateY(-2px);
+}
+
+/* Estilos del logo en la barra de navegación */
+.logo-nav {
+  /* Alto del logo */
+  height: 60px;
+  /* Ancho automático para mantener la proporción */
+  width: auto;
+  /* Hace que la imagen se adapte perfectamente al contenedor */
+  object-fit: contain;
+  /* Transición suave cuando se agrandarlogo al pasar el mouse */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre el logo */
+.logo-nav:hover {
+  /* Agranda el logo un 5% cuando haces hover */
+  transform: scale(1.05);
+}
+
+/* Estilos para los iconos de redes sociales en el navbar */
+.icono-red {
+  /* Ancho de los iconos */
+  width: 28px;
+  /* Alto de los iconos */
+  height: 28px;
+  /* Transición suave para agrandar el icono */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre los iconos de redes */
+.icono-red:hover {
+  /* Agranda el icono un 10% */
+  transform: scale(1.1);
+}
+
+/* =====================================================
+   ESTILOS DE BOTONES PERSONALIZADOS
+   ===================================================== */
+
+.btn-custom {
+  /* Color de fondo verde personalizado para los botones */
+  background-color: #0a5;
+  /* Color del texto blanco */
+  color: #fff;
+  /* Elimina el borde por defecto de los botones */
+  border: none;
+  /* Transición suave para cambios de color y estilo */
+  transition: 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre un botón */
+.btn-custom:hover {
+  /* Cambia a un verde más oscuro */
+  background-color: #088;
+  /* Mantiene el texto blanco */
+  color: #fff;
+}
+
+/* =====================================================
+   ESTILOS DE LA SECCIÓN HERO (PORTADA PRINCIPAL)
+   ===================================================== */
+
+.hero {
+  /* Usa flexbox para alinear elementos lado a lado */
+  display: flex;
+  /* Centra los elementos verticalmente */
+  align-items: center;
+  /* Centra los elementos horizontalmente */
+  justify-content: space-between;
+  /* Espacio entre los elementos flex */
+  gap: 2rem;
+  /* Espacio interno (relleno) */
+  padding: 2.5rem 1rem;
+  /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  flex-wrap: wrap;
+}
+
+/* Estilos para el texto en la sección hero */
+.hero .text-start {
+  /* El elemento toma un espacio flexible */
+  flex: 1 1 420px;
+  /* Ancho máximo del texto */
+  max-width: 560px;
+  /* Ancho mínimo para no hacerse muy pequeño */
+  min-width: 280px;
+}
+
+/* Espaciado del encabezado en el hero */
+.hero .fw-bold {
+  /* Margen inferior para separar del siguiente elemento */
+  margin-bottom: 0.75rem;
+}
+
+/* Estilos del párrafo en el hero */
+.hero .text-start p {
+  /* Elimina el margen por defecto */
+  margin: 0;
+  /* Altura de línea de 1.6 para mejor legibilidad */
+  line-height: 1.6;
+  /* Color gris más claro para el texto del párrafo */
+  color: #444;
+}
+
+/* =====================================================
+   ESTILOS DE LA IMAGEN HERO
+   ===================================================== */
+
+.hero-img {
+  /* Establece una imagen de fondo */
+  background-image: url("images/hero.jpg");
+  /* La imagen cubre todo el contenedor */
+  background-size: cover;
+  /* Centra la imagen dentro del contenedor */
+  background-position: center;
+  /* Evita que la imagen se repita */
+  background-repeat: no-repeat;
+  /* Alto mínimo de la imagen */
+  min-height: 350px;
+  /* Bordes redondeados para un aspecto moderno */
+  border-radius: 8px;
+}
+
+/* =====================================================
+   ESTILOS DEL CARRUSEL DE EVENTOS
+   ===================================================== */
+
+.hero #carouselExample {
+  /* Espacio flexible para el carrusel */
+  flex: 1 1 520px;
+  /* Ancho mínimo */
+  min-width: 320px;
+  /* Bordes redondeados */
+  border-radius: 12px;
+  /* Oculta cualquier contenido que se salga de los bordes */
+  overflow: hidden;
+  /* Altura máxima del carrusel */
+  max-height: 460px;
+}
+
+/* Hace que las imágenes del carrusel ocupen todo el espacio */
+.hero #carouselExample .carousel-inner,
+.hero #carouselExample .carousel-item,
+.hero #carouselExample img {
+  /* Ancho 100% del contenedor */
+  width: 100%;
+  /* Alto 100% del contenedor */
+  height: 100%;
+}
+
+/* Ajusta la imagen para que llene el espacio sin distorsionarse */
+.hero #carouselExample img {
+  /* Recorta/agranda la imagen para llenar el espacio */
+  object-fit: cover;
+}
+
+/* =====================================================
+   ESTILOS DE LAS IMÁGENES DE EVENTOS EN CARRUSEL
+   ===================================================== */
+
+.evento-img {
+  /* Ancho completo del contenedor */
+  width: 100%;
+  /* Alto de la imagen de evento */
+  height: 400px;
+  /* La imagen cubre todo el espacio */
+  background-size: cover;
+  /* Centra la imagen */
+  background-position: center;
+  /* Bordes redondeados */
+  border-radius: 10px;
+}
+
+/* =====================================================
+   RESPONSIVE - Pantallas medianas y pequeñas
+   ===================================================== */
+
+@media (max-width: 991.98px) {
+  .hero {
+    /* Cambia a disposición de columna (uno encima del otro) */
+    flex-direction: column;
+    /* Centra el texto */
+    text-align: center;
+  }
+  
+  .hero .text-start {
+    /* Ancho máximo ajustado para móvil */
+    max-width: 700px;
+  }
+  
+  .hero #carouselExample {
+    /* Ancho completo en dispositivos pequeños */
+    width: 100%;
+    /* Altura máxima reducida para móvil */
+    max-height: 360px;
+  }
+}
+
+/* =====================================================
+   ESTILOS DE LA SECCIÓN DE TIPOS DE EVENTOS
+   ===================================================== */
+
+.tipos-eventos {
+  /* Espacio interno (relleno) */
+  padding: 3rem 2rem;
+}
+
+/* Título de la sección de tipos de eventos */
+.tipos-eventos > h1 {
+  /* Alineación al centro */
+  text-align: center;
+  /* Margen inferior */
+  margin-bottom: 2.5rem;
+  /* Texto muy grueso y bold */
+  font-weight: 700;
+  /* Tamaño grande del encabezado */
+  font-size: 2.2rem;
+}
+
+/* =====================================================
+   ESTILOS DE SECCIONES DE EVENTO (QUINCEAÑERO, BODA, CUMPLEAÑOS)
+   ===================================================== */
+
+.quinciañero,
+.matrimonio,
+.cumpleaño {
+  /* Alinea elementos lado a lado */
+  display: flex;
+  /* Centra verticalmente */
+  align-items: center;
+  /* Distribuye con espacio entre elementos */
+  justify-content: space-between;
+  /* Espacio entre imagen y texto */
+  gap: 3rem;
+  /* Margen inferior para separar de la siguiente sección */
+  margin-bottom: 4rem;
+}
+
+/* Estilos del texto dentro de las secciones de eventos */
+.quinciañero .texto,
+.matrimonio .texto,
+.cumpleaño .texto {
+  /* Espacio flexible */
+  flex: 1;
+  /* Ancho máximo del texto */
+  max-width: 45%;
+  /* Usa flexbox para organizar el contenido del texto */
+  display: flex;
+  /* Organiza los elementos en columna (vertical) */
+  flex-direction: column;
+  /* Centra verticalmente el contenido */
+  justify-content: center;
+  /* Alinea el contenido a la izquierda */
+  align-items: flex-start;
+}
+
+/* Títulos dentro de las secciones de eventos */
+.quinciañero .texto h2,
+.matrimonio .texto h2,
+.cumpleaño .texto h2 {
+  /* Tamaño grande del título */
+  font-size: 2rem;
+  /* Texto muy grueso */
+  font-weight: 700;
+  /* Margen inferior */
+  margin-bottom: 1rem;
+  /* Convierte a mayúsculas el texto */
+  text-transform: capitalize;
+  /* Color gris oscuro */
+  color: #222;
+}
+
+/* Párrafos dentro de las secciones de eventos */
+.quinciañero .texto p,
+.matrimonio .texto p,
+.cumpleaño .texto p {
+  /* Tamaño de fuente ligeramente más grande */
+  font-size: 1.05rem;
+  /* Altura de línea para mejor legibilidad */
+  line-height: 1.6;
+  /* Margen inferior */
+  margin-bottom: 1.2rem;
+  /* Color gris */
+  color: #444;
+}
+
+/* Listas de características dentro de eventos */
+.quinciañero .texto ul,
+.matrimonio .texto ul,
+.cumpleaño .texto ul {
+  /* Muestra viñetas (puntos) en la lista */
+  list-style-type: disc;
+  /* Sangría para las viñetas */
+  padding-left: 1.2rem;
+  /* Elimina margen por defecto */
+  margin: 0;
+}
+
+/* Elementos de la lista */
+.quinciañero .texto li,
+.matrimonio .texto li,
+.cumpleaño .texto li {
+  /* Tamaño de fuente normal */
+  font-size: 1rem;
+  /* Altura de línea para mejor legibilidad */
+  line-height: 1.4;
+  /* Margen inferior entre elementos */
+  margin-bottom: 0.4rem;
+}
+
+/* Imágenes dentro de las secciones de eventos */
+.quinciañero img,
+.matrimonio img,
+.cumpleaño img {
+  /* Espacio flexible para la imagen */
+  flex: 1;
+  /* Ancho de la imagen */
+  width: 50%;
+  /* Altura máxima */
+  max-height: 380px;
+  /* Recorta/agranda la imagen para llenar */
+  object-fit: cover;
+  /* Bordes redondeados */
+  border-radius: 12px;
+  /* Sombra para profundidad */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Dirección del flexbox para quinceañero (imagen a la derecha) */
+.quinciañero {
+  flex-direction: row;
+}
+
+/* Dirección del flexbox para matrimonio (imagen a la izquierda) */
+.matrimonio {
+  flex-direction: row-reverse;
+}
+
+/* Dirección del flexbox para cumpleaño (imagen a la derecha) */
+.cumpleaño {
+  flex-direction: row;
+}
+
+/* =====================================================
+   RESPONSIVE - Secciones de eventos en móvil
+   ===================================================== */
+
+@media (max-width: 992px) {
+  .quinciañero,
+  .matrimonio,
+  .cumpleaño {
+    /* Cambia a columna en móvil */
+    flex-direction: column;
+    /* Centra el texto */
+    text-align: center;
+  }
+
+  .quinciañero .texto,
+  .matrimonio .texto,
+  .cumpleaño .texto {
+    /* Ancho completo en móvil */
+    max-width: 100%;
+    /* Centra el contenido */
+    align-items: center;
+  }
+
+  .quinciañero img,
+  .matrimonio img,
+  .cumpleaño img {
+    /* Ancho completo */
+    width: 100%;
+    /* Altura máxima reducida para móvil */
+    max-height: 300px;
+  }
+}
+
+/* =====================================================
+   ESTILOS DE IMÁGENES DE LA SECCIÓN ACERCA DE
+   ===================================================== */
+
+.acerca-img {
+  /* La imagen cubre todo el espacio */
+  background-size: cover;
+  /* Centra la imagen */
+  background-position: center;
+  /* No repite la imagen */
+  background-repeat: no-repeat;
+  /* Alto mínimo */
+  min-height: 300px;
+  /* Bordes redondeados */
+  border-radius: 8px;
+}
+
+/* =====================================================
+   ESTILOS DE TARJETAS (CARDS) DE PROYECTOS
+   ===================================================== */
+
+/* Imagen dentro de las tarjetas */
+.tarjeta-img {
+  /* Color de fondo gris claro mientras carga la imagen */
+  background-color: #ccc;
+  /* La imagen cubre todo el espacio */
+  background-size: cover;
+  /* Centra la imagen */
+  background-position: center;
+  /* No repite la imagen */
+  background-repeat: no-repeat;
+  /* Alto mínimo */
+  min-height: 220px;
+  /* Bordes redondeados solo en la parte superior */
+  border-radius: 8px 8px 0 0;
+  /* Transición suave cuando se agranda */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre la tarjeta */
+.card:hover .tarjeta-img {
+  /* Agranda la imagen un 5% al hacer hover */
+  transform: scale(1.05);
+}
+
+/* Estilos de la tarjeta completa */
+.card {
+  /* Elimina el borde por defecto de Bootstrap */
+  border: none;
+  /* Transición suave para transformación y sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre una tarjeta */
+.card:hover {
+  /* Mueve la tarjeta hacia arriba 5px */
+  transform: translateY(-5px);
+  /* Agrega una sombra más visible */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* =====================================================
+   ESTILOS DE IMAGEN DE CONTACTO
+   ===================================================== */
+
+.contacto-img {
+  /* Ancho máximo del 100% */
+  max-width: 100%;
+  /* Alto automático para mantener proporciones */
+  height: auto;
+  /* Bordes redondeados */
+  border-radius: 8px;
+  /* Recorta/agranda la imagen para llenar */
+  object-fit: cover;
+}
+
+/* =====================================================
+   ESTILOS DEL PIE DE PÁGINA (FOOTER)
+   ===================================================== */
+
+.footer {
+  /* Color de fondo gris oscuro casi negro */
+  background-color: #222;
+  /* Color del texto blanco */
+  color: #fff;
+  /* Tamaño de fuente un poco más pequeño */
+  font-size: 0.95rem;
+}
+
+/* Títulos dentro del footer */
+.footer h5 {
+  /* Color verde personalizado para los títulos */
+  color: #0a5;
+}
+
+/* Enlaces dentro del footer */
+.footer a {
+  /* Color blanco para los enlaces */
+  color: #fff;
+  /* Elimina el subrayado de los enlaces */
+  text-decoration: none;
+  /* Transición suave al cambiar de color */
+  transition: color 0.3s ease;
+}
+
+/* Efecto cuando pasas el mouse sobre un enlace del footer */
+.footer a:hover {
+  /* Cambia a verde cuando haces hover */
+  color: #0a5;
+}
+
+/* Línea divisoria en el footer */
+.footer hr {
+  /* Reduce la opacidad para que sea más sutil */
+  opacity: 0.2;
+}

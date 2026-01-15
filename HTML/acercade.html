@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR FIJA EN LA PARTE SUPERIOR
+       Conectado con CSS:
+       - .navbar: estilos generales y fixed-top
+       - .navbar-nav .nav-link: estilos de enlaces
+       - .logo-nav: imagen del logo
+       - .icono-red: iconos de redes sociales
+       ===================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <div class="container">
+      <!-- Logo de la marca que enlaza al home -->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.png" alt="Logo" class="logo-nav">
+      </a>
+      
+      <!-- Botón hamburguesa para móvil (Bootstrap) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú colapsable que se muestra/oculta en móvil -->
+      <div class="collapse navbar-collapse justify-content-center" id="menuNav">
+        <!-- Lista de navegación centrada -->
+        <ul class="navbar-nav mx-auto text-center">
+          <!-- Cada elemento es un link a una sección del sitio -->
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/eventos.html">Eventos</a></li>
+          <!-- "active" indica que estamos en esta página -->
+          <li class="nav-item"><a class="nav-link active" href="../HTML/proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/acercade.html">Acerca de Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="../HTML/contactanos.html">Contáctanos</a></li>
+        </ul>
+
+        <!-- 
+          ICONOS DE REDES SOCIALES EN EL NAVBAR
+          d-flex: usa flexbox para alineación
+          justify-content-center: centra en móvil
+          justify-content-lg-end: alinea a la derecha en desktop
+          gap-3: espacio entre iconos
+          mt-3 mt-lg-0: margen en móvil, sin margen en desktop
+          Conectado con CSS: .icono-red (width, height, hover effects)
+        -->
+        <div class="d-flex justify-content-center justify-content-lg-end gap-3 mt-3 mt-lg-0">
+          <!-- Link a Facebook -->
+          <a href="https://facebook.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+          </a>
+          <!-- Link a Instagram -->
+          <a href="https://instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+       Etiqueta <main> para semántica HTML5
+       container: ancho máximo con padding
+       py-5: padding vertical
+       mt-5: margen superior (para que no se tape con navbar fija)
+       Conectado con CSS: container propiedades y py-5 (padding Bootstrap)
+       ===================================================== -->
+  <main class="container py-5 mt-5">
+
+    <!-- =====================================================
+         PRIMERA SECCIÓN - PASIÓN POR MOMENTOS INOLVIDABLES
+         Conectado con CSS:
+         - row, col-md-6: grid responsive
+         - align-items-center: alinea verticalmente
+         - py-5: padding vertical
+         ===================================================== -->
+    <div class="row align-items-center py-5">
+      <!-- 
+        COLUMNA DE TEXTO (izquierda en desktop, arriba en móvil)
+        col-md-6: ocupa 6 de 12 columnas en pantallas medianas+
+        mb-4 mb-md-0: margen inferior en móvil, sin margen en desktop
+      -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Subtítulo de la sección -->
+        <h3 class="fw-semibold mb-3">Nuestra Pasión por los Momentos Inolvidables</h3>
+        <!-- Párrafo de descripción -->
+        <p>
+          En <strong>Eventos D&J</strong> creemos que cada evento es una historia única, creada con pasión y dedicación.
+          Nos especializamos en la organización integral de eventos sociales, desde conceptualización hasta ejecución,
+          cuidando cada detalle con elegancia y profesionalismo.  
+          Transformamos tus ideas en experiencias únicas que perduran en la memoria de tus invitados.
+        </p>
+      </div>
+      
+      <!-- 
+        COLUMNA DE VIDEO/IMAGEN (derecha en desktop, abajo en móvil)
+        col-md-6: ocupa 6 de 12 columnas
+        ratio ratio-16x9: proporciona relación de aspecto 16:9
+        bg-light: fondo gris claro
+        d-flex: usa flexbox
+        justify-content-center, align-items-center: centra el contenido
+        border: borde
+        rounded: esquinas redondeadas
+      -->
+      <div class="col-md-6">
+        <!-- Contenedor para video/imagen con relación 16:9 -->
+        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
+          <!-- Símbolo de play para indicar que es un video -->
+          <span class="fs-1 text-secondary">▶</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================
+         SEGUNDA SECCIÓN - HACEMOS REALIDAD TUS SUEÑOS
+         Conectado con CSS: Igual a la sección anterior
+         DIFERENCIA: flex-md-row-reverse invierte el orden en desktop
+         ===================================================== -->
+    <div class="row align-items-center py-5 flex-md-row-reverse">
+      <!-- 
+        COLUMNA DE TEXTO (derecha en desktop debido a row-reverse, arriba en móvil)
+        col-md-6: ocupa 6 columnas
+        mb-4 mb-md-0: margen solo en móvil
+      -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Subtítulo de la sección -->
+        <h3 class="fw-semibold mb-3">Hacemos Realidad Tus Sueños</h3>
+        <!-- Párrafo con descripción -->
+        <p>
+          Desde nuestra fundación, en <strong>Eventos D&J</strong> nos hemos comprometido a brindar experiencias únicas que reflejen la esencia de cada cliente.
+          Planificamos, diseñamos y coordinamos eventos personalizados, cuidando cada aspecto desde la decoración hasta el entretenimiento.
+          Nuestro objetivo es que disfrutes de tu celebración sin preocupaciones, haciendo de tu momento algo <strong>simplemente inolvidable</strong>.
+        </p>
+      </div>
+      
+      <!-- 
+        COLUMNA DE VIDEO/IMAGEN (izquierda en desktop debido a row-reverse, abajo en móvil)
+        col-md-6: ocupa 6 columnas
+      -->
+      <div class="col-md-6">
+        <!-- Contenedor para video/imagen -->
+        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
+          <!-- Símbolo de play -->
+          <span class="fs-1 text-secondary">▶</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================
+         TERCERA SECCIÓN - MÁS QUE EVENTOS, EXPERIENCIAS
+         Conectado con CSS: Igual a la primera sección
+         ===================================================== -->
+    <div class="row align-items-center py-5">
+      <!-- 
+        COLUMNA DE TEXTO (izquierda en desktop)
+        col-md-6: ocupa 6 columnas
+        mb-4 mb-md-0: margen solo en móvil
+      -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Subtítulo -->
+        <h3 class="fw-semibold mb-3">Más que Eventos, Experiencias</h3>
+        <!-- Descripción -->
+        <p>
+          En <strong>Eventos D&J</strong> no solo organizamos eventos, sino que creamos emociones. Cada proyecto es una oportunidad para innovar y sorprender, con un enfoque creativo y una ejecución impecable.
+          Nos esforzamos por superar expectativas, ofreciendo experiencias que conectan y celebran los momentos más importantes de la vida.
+        </p>
+      </div>
+      
+      <!-- 
+        COLUMNA DE VIDEO/IMAGEN (derecha en desktop)
+        col-md-6: ocupa 6 columnas
+      -->
+      <div class="col-md-6">
+        <!-- Contenedor para video/imagen -->
+        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
+          <!-- Símbolo de play -->
+          <span class="fs-1 text-secondary">▶</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER (PIE DE PÁGINA)
+       Conectado con CSS:
+       - .footer: background-color, color, font-size
+       - .footer h5: color verde personalizado
+       - .footer a: color y hover effects
+       - .footer hr: opacity reducida
+       - pt-5 pb-3: padding top y bottom
+       - mt-5: margen superior
+       ===================================================== -->
+  <footer class="footer bg-dark text-white pt-5 pb-3 mt-5">
+    <!-- Contenedor principal del footer -->
+    <div class="container text-center text-md-start">
+      <!-- Grid de 3 columnas para el footer -->
+      <div class="row">
+
+        <!-- 
+          PRIMERA COLUMNA - NOMBRE DE LA EMPRESA
+          col-md-4: ocupa 4 de 12 columnas en desktop
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Nombre de la empresa con color verde personalizado -->
+          <h5 class="fw-bold">D&J Eventos</h5>
+          <!-- Descripción corta -->
+          <p>Creamos momentos inolvidables con estilo, dedicación y elegancia.</p>
+        </div>
+
+        <!-- 
+          SEGUNDA COLUMNA - INFORMACIÓN DE CONTACTO
+          col-md-4: ocupa 4 de 12 columnas
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Contáctanos</h5>
+          <!-- Lista sin estilos de viñetas -->
+          <ul class="list-unstyled">
+            <!-- Teléfono con icono emoji -->
+            <li>📞 +51 954795827</li>
+            <!-- Email con icono emoji -->
+            <li>✉️ contacto@dyjeventos.com</li>
+            <!-- Ubicación con icono emoji -->
+            <li>📍 Lima, Perú</li>
+          </ul>
+        </div>
+
+        <!-- 
+          TERCERA COLUMNA - REDES SOCIALES
+          col-md-4: ocupa 4 de 12 columnas
+          text-center: centra en móvil
+          text-md-end: alinea a la derecha en desktop
+          mb-4: margen inferior
+        -->
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <!-- Título con color verde personalizado -->
+          <h5 class="fw-bold">Síguenos</h5>
+          <!-- 
+            CONTENEDOR DE ICONOS SOCIALES
+            d-flex: usa flexbox
+            justify-content-center: centra en móvil
+            justify-content-md-end: alinea a la derecha en desktop
+            gap-3: espacio de 3 entre iconos
+            mt-2: margen superior
+          -->
+          <div class="d-flex justify-content-center justify-content-md-end gap-3 mt-2">
+            <!-- Link a Facebook -->
+            <a href="https://facebook.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+            </a>
+            <!-- Link a Instagram -->
+            <a href="https://instagram.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        LÍNEA DIVISORIA
+        border-light: color claro
+        Conectado con CSS: .footer hr { opacity: 0.2; }
+      -->
+      <hr class="border-light">
+      
+      <!-- 
+        TEXTO DE DERECHOS RESERVADOS
+        text-center: centra el texto
+        mb-0: sin margen inferior
+      -->
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 D&J Eventos – Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    SCRIPT DE BOOTSTRAP 5.3.3
+    Habilita funcionalidades interactivas:
+    - Botón hamburguesa del navbar (collapse)
+    - Carruseles
+    - Dropdowns
+    - Tooltips
+    - Y otras características dinámicas de Bootstrap
+    
+    integrity: verifica que el script no haya sido modificado
+    crossorigin: permite cargar desde CDN externo
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
