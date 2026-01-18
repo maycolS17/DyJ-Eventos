@@ -709,13 +709,13 @@
        - .footer hr: opacity reducida
        ===================================================== -->
   <footer class="footer bg-dark text-white pt-5 pb-3 mt-5">
-    <!-- Contenedor principal con ancho máximo -->
+    <!-- Contenedor principal del footer -->
     <div class="container text-center text-md-start">
-      <!-- Grid de 3 columnas en desktop -->
+      <!-- Grid de 3 columnas para el footer -->
       <div class="row">
 
         <!-- 
-          PRIMERA COLUMNA - INFORMACIÓN DE LA EMPRESA
+          PRIMERA COLUMNA - NOMBRE DE LA EMPRESA
           col-md-4: ocupa 4 de 12 columnas en desktop
           mb-4: margen inferior
         -->
@@ -734,16 +734,15 @@
         <div class="col-md-4 mb-4">
           <!-- Título con color verde personalizado -->
           <h5 class="fw-bold">Contáctanos</h5>
-          <!-- 
-            Lista sin estilos de viñetas
-            list-unstyled: clase de Bootstrap que quita viñetas
-          -->
+          <!-- Lista sin estilos de viñetas -->
           <ul class="list-unstyled">
-            <!-- Teléfono con emoji como icono -->
-            <li>📞 +51 954795827</li>
-            <!-- Email con emoji como icono -->
-            <li>✉️ contacto@dyjeventos.com</li>
-            <!-- Ubicación con emoji como icono -->
+            <!-- Teléfono con icono emoji -->
+            <li>📞 <a href="https://wa.me/51954795827" target="_blank" class="text-decoration-none text-reset">+51 954795827</a></li>
+            <!-- Teléfono con icono emoji -->
+            <li>📞<a href="https://wa.me/51976305769" target="_blank" class="text-decoration-none text-reset">+51 976305769</a></li>
+            <!-- Email con icono emoji -->
+            <li>✉️ <a href="mailto:contacto@dyjeventos.com" class="text-decoration-none text-reset">contacto@dyjeventos.com</a></li>
+            <!-- Ubicación con icono emoji -->
             <li>📍 Lima, Perú</li>
           </ul>
         </div>
@@ -762,4 +761,37 @@
             CONTENEDOR DE ICONOS SOCIALES
             d-flex: usa flexbox
             justify-content-center: centra en móvil
-            justify-content-md-end: alinea a derecha
+            justify-content-md-end: alinea a la derecha en desktop
+            gap-3: espacio de 3 entre iconos
+            mt-2: margen superior
+          -->
+          <div class="d-flex justify-content-center justify-content-md-end gap-3 mt-2">
+            <!-- Link a Facebook -->
+            <a href="https://facebook.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+            </a>
+            <!-- Link a Instagram -->
+            <a href="https://instagram.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        LÍNEA DIVISORIA
+        border-light: color claro
+        Conectado con CSS: .footer hr { opacity: 0.2; }
+      -->
+      <hr class="border-light">
+      
+      <!-- 
+        TEXTO DE DERECHOS RESERVADOS
+        text-center: centra el texto
+        mb-0: sin margen inferior
+      -->
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 D&J Eventos – Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>

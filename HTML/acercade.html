@@ -114,9 +114,8 @@
       -->
       <div class="col-md-6">
         <!-- Contenedor para video/imagen con relación 16:9 -->
-        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
-          <!-- Símbolo de play para indicar que es un video -->
-          <span class="fs-1 text-secondary">▶</span>
+        <div class="ratio" style="--bs-aspect-ratio: 100%;">
+          <video src="../images/video01.mp4" controls autoplay muted loop playsinline class="w-11 h-100 object-fit: contain; background:#0000;"></video>
         </div>
       </div>
     </div>
@@ -149,9 +148,8 @@
       -->
       <div class="col-md-6">
         <!-- Contenedor para video/imagen -->
-        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
-          <!-- Símbolo de play -->
-          <span class="fs-1 text-secondary">▶</span>
+        <div class="ratio" style="--bs-aspect-ratio: 100%;">
+          <video src="../images/video02.mp4" controls autoplay muted loop playsinline class="w-11 h-100 object-fit: contain; background:#000;"></video>
         </div>
       </div>
     </div>
@@ -182,9 +180,8 @@
       -->
       <div class="col-md-6">
         <!-- Contenedor para video/imagen -->
-        <div class="ratio ratio-16x9 bg-light d-flex justify-content-center align-items-center border rounded">
-          <!-- Símbolo de play -->
-          <span class="fs-1 text-secondary">▶</span>
+        <div class="ratio" style="--bs-aspect-ratio: 100%;">
+          <video src="../images/video03.mp4" controls autoplay muted loop playsinline class="w-11 h-100 object-fit: contain; background:#0000;"></video>
         </div>
       </div>
     </div>
@@ -230,9 +227,11 @@
           <!-- Lista sin estilos de viñetas -->
           <ul class="list-unstyled">
             <!-- Teléfono con icono emoji -->
-            <li>📞 +51 954795827</li>
+            <li>📞 <a href="https://wa.me/51954795827" target="_blank" class="text-decoration-none text-reset">+51 954795827</a></li>
+            <!-- Teléfono con icono emoji -->
+            <li>📞<a href="https://wa.me/51976305769" target="_blank" class="text-decoration-none text-reset">+51 976305769</a></li>
             <!-- Email con icono emoji -->
-            <li>✉️ contacto@dyjeventos.com</li>
+            <li>✉️ <a href="mailto:contacto@dyjeventos.com" class="text-decoration-none text-reset">contacto@dyjeventos.com</a></li>
             <!-- Ubicación con icono emoji -->
             <li>📍 Lima, Perú</li>
           </ul>
