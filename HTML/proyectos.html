@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -25,31 +25,47 @@
       <a class="navbar-brand" href="../index.html">
         <img src="../images/logo.png" alt="Logo" class="logo-nav">
       </a>
-      <!-- Botón hamburguesa para móvil -->
+      
+      <!-- Botón hamburguesa para móvil (Bootstrap) -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Menú colapsable -->
+      <!-- Menú colapsable que se muestra/oculta en móvil -->
       <div class="collapse navbar-collapse justify-content-center" id="menuNav">
-        <!-- Lista de navegación -->
+        <!-- Lista de navegación centrada -->
         <ul class="navbar-nav mx-auto text-center">
+          <!-- Cada elemento es un link a una sección del sitio -->
           <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="../HTML/eventos.html">Eventos</a></li>
-          <!-- Link activo indica que estamos en esta página -->
+          <!-- "active" indica que estamos en esta página -->
           <li class="nav-item"><a class="nav-link active" href="../HTML/proyectos.html">Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="../HTML/acercade.html">Acerca de Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="../HTML/contactanos.html">Contáctanos</a></li>
         </ul>
 
-        <!-- Iconos de redes sociales -->
+        <!-- 
+          ICONOS DE REDES SOCIALES EN EL NAVBAR
+          d-flex: usa flexbox para alineación
+          justify-content-center: centra en móvil
+          justify-content-lg-end: alinea a la derecha en desktop
+          gap-3: espacio entre iconos
+          mt-3 mt-lg-0: margen en móvil, sin margen en desktop
+          Conectado con CSS: .icono-red (width, height, hover effects)
+        -->
         <div class="d-flex justify-content-center justify-content-lg-end gap-3 mt-3 mt-lg-0">
-          <a href="https://facebook.com" target="_blank">
+          <!-- Link a Facebook -->
+          <a href="https://www.facebook.com/DyJeventos.vintage" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
           </a>
-          <a href="https://instagram.com" target="_blank">
+          <!-- Link a Instagram -->
+          <a href="https://www.instagram.com/dyjeventos.vintagedecor?igsh=aTB5c3AyYnhveGJ1" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
           </a>
+          <!-- Link a TikTok -->
+           <a href="https://www.tiktok.com/@_954795827_" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png" alt="TikTok" class="icono-red">
+           </a>
         </div>
       </div>
     </div>
@@ -360,13 +376,17 @@
           -->
           <div class="d-flex justify-content-center justify-content-md-end gap-3 mt-2">
             <!-- Link a Facebook -->
-            <a href="https://facebook.com" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
-            </a>
-            <!-- Link a Instagram -->
-            <a href="https://instagram.com" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
-            </a>
+          <a href="https://www.facebook.com/DyJeventos.vintage" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icono-red">
+          </a>
+          <!-- Link a Instagram -->
+          <a href="https://www.instagram.com/dyjeventos.vintagedecor?igsh=aTB5c3AyYnhveGJ1" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="icono-red">
+          </a>
+          <!-- Link a TikTok -->
+          <a href="https://www.tiktok.com/@_954795827_" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png" alt="TikTok" class="icono-red">
+          </a>
           </div>
         </div>
       </div>
